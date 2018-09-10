@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+<h:head>
+
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js" />
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" />
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <h:outputStylesheet library="css" name="bootstrap.min.css" />   
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"/>     
+    <title>crudWeb</title>
+    <style type="text/css">
+        .tableUpdated {
+        	width: 90% !important;
+        	margin: 17px 58px 0 !important;
+        }
+        .btnSpace {
+        	margin: 17px;
+        }     
+    </style>
+<script>
+$(document).ready(function(){
+    $('#personsTable').dataTable();
+});
+
+</script>
+</h:head>
+<h:body>
+    <center><h2><h:outputText value="Person Records"/></h2></center>
+   
+        <h:dataTable id="personsTable" binding="#{table}" value="#{personBean.personsList()}" var="person" class="table table-striped table-hover table-bordered table-sm" cellspacing="0">
+                    
+            <h:column >
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{person.id}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">First Name</f:facet>
+                <h:outputText value="#{person.firstName}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Last Name</f:facet>
+                <h:outputText value="#{person.lastName}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Birth Date</f:facet>
+                <h:outputText value="#{person.birthDate}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Email</f:facet>
+                <h:outputText value="#{person.email}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Address</f:facet>
+                <h:outputText value="#{person.address}" />
+            </h:column>
+            
+            <h:column >
+            <h:form>
+                <h:commandButton action="#{personBean.editPersonRecord(person.id)}" value="Update" class="btn btn-primary" />
+                <h:commandButton action="#{personBean.deletePersonRecord(person.id)}" value="Delete" class="btn btn-danger" />
+            </h:form>
+            </h:column>
+            
+        </h:dataTable>
+<h:form>
+        <center>
+            <h:commandButton action="createPerson.xhtml?faces-redirect=true" value="Create New User" class="btn btn-success btnSpace" />
+        </center>
+        </h:form>
+</h:body>
+</html>
