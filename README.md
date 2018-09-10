@@ -6,12 +6,13 @@ Java 1.8
 
 Installeerimisjuhend:
 Importida kodutöö.zip fail kui dynamic web application.
-Käivitada TomCat-iga. Run on server
+Käivitada TomCat-iga. Run on server.
 Ava rakendus brauseris vastavalt oma serverile http://localhost:8080/crudWeb/faces/personsList.xhtml
+Teine variant, impordi zip fail IDE-sse ja tee maven build ja deploy loodud war fail.
 
-Rakendus crudWeb:
+Rakendus crudWeb funktsionaalsus:
 Võimalik sisestada, kustutada ja muuta isiku andmeid.
-Lisavõimalusteks on isikute otsing ja nimekirja sorteerimine erinevate parameetrite järgi.
+Lisaks isikute otsing ja nimekirja sorteerimine erinevate parameetrite järgi kasutades bootStrapi võimalusi.
 
 Kasutatud tehnoloogiad:
 Java
